@@ -49,7 +49,7 @@
 
 @media (max-width: 767px) {
   .button {
-    width: 90%;
+    width: 100%;
     margin: 2em auto;
     padding: 0.7em;
     border: none;
@@ -65,7 +65,7 @@
 
 @media (min-width: 767px) and (max-width: 1023px) {
   .button {
-    width: 80%;
+    width: 100%;
     margin: 2em auto;
     border: none;
   }

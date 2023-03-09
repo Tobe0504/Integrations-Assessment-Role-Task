@@ -21,7 +21,7 @@
 .header {
   font-size: 1.5rem;
   margin: 1rem 0;
-  color: var(--primaryColor);
+  color: var(--darkblue);
 }
 
 .errorSection {
@@ -70,4 +70,10 @@
 
 .buttonSection {
   animation: appear 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 767px) {
+  .innerContainer {
+    width: 100%;
+  }
 }
