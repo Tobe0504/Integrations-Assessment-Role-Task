@@ -1,7 +1,7 @@
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import classes from "./Header.module.css";
 
 const Header = () => {
@@ -15,8 +15,11 @@ const Header = () => {
     document.getElementById("sideMenu").style.width = "0%";
   };
 
+  // Locationn
+  const location = useLocation();
+
   const navLinks = [
-    { title: "Transfer", route: "/" },
+    { title: "Transfer", route: "/transfer" },
     { title: "Project Documentation", route: "/project-documentation" },
   ];
   return (
@@ -30,7 +33,7 @@ const Header = () => {
                 to={link.route}
                 key={link.title}
                 className={
-                  window.location.pathname === link.route
+                  location.pathname.includes(link.route)
                     ? classes.activeLink
                     : undefined
                 }
@@ -57,7 +60,7 @@ const Header = () => {
                 to={link.route}
                 key={link.title}
                 className={
-                  window.location.pathname === link.route
+                  location.pathname.includes(link.route)
                     ? classes.activeLink
                     : undefined
                 }
