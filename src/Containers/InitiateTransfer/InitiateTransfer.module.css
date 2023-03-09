@@ -1,5 +1,13 @@
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .container {
-  border: 2px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,6 +16,17 @@
 
 .innerContainer {
   width: 40%;
+}
+
+.header {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: var(--primaryColor);
+}
+
+.errorSection {
+  margin: 2rem 0 1rem 0;
+  animation: appear 0.3s ease-in-out;
 }
 
 .dropdownSection {
@@ -25,4 +44,30 @@
   bottom: 8px;
   font-size: 0.8rem;
   color: red;
+  animation: appear 0.3s ease-in-out;
+}
+
+.resolveText {
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--green);
+  font-weight: 500;
+  animation: appear 0.3s ease-in-out;
+}
+
+.resolvedBankDetails {
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--darkblue);
+  animation: appear 0.3s ease-in-out;
+}
+
+.anountAndDescription {
+  animation: appear 0.3s ease-in-out;
+}
+
+.buttonSection {
+  animation: appear 0.3s ease-in-out;
 }
