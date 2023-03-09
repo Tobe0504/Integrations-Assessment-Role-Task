@@ -1,0 +1,33 @@
+.container {
+  padding: 0 2.5%;
+}
+
+.header {
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  color: var(--darkblue);
+  margin-bottom: 2rem;
+}
+
+.paragraph {
+  margin: 2rem 0;
+}
+
+.subHeading {
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  color: var(--darkblue);
+  margin-bottom: 1rem;
+}
+
+.paragraph {
+  font-size: 16px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  width: 95%;
+}

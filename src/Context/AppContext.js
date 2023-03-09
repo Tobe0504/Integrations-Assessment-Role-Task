@@ -36,18 +36,16 @@ const AppContextProvider = (props) => {
         },
       })
       .then((res) => {
-        console.log(res, "Banks");
         setAvailableBanks(res.data.data);
         setIsFetchingAvailableBanks(false);
       })
       .catch((err) => {
-        console.log(err);
         setFetchBankError(err.message);
         setIsFetchingAvailableBanks(false);
       });
   };
 
-  // Set user bank
+  // Get user bank meta dataß
   useEffect(() => {
     if (availablebanks.length > 0 && selectedBank) {
       const selectedbank = availablebanks.find((bank) => {
@@ -55,15 +53,15 @@ const AppContextProvider = (props) => {
       });
       setUserBankDetails(selectedbank);
     }
+    // eslint-disable-next-line
   }, [selectedBank]);
-
-  console.log(userBankDetails, "User bank");
 
   //   Resolve Account Number
   const resolveAccountDetails = () => {
     if (accountNumber && userBankDetails) {
       setIsResolvingbankDetails(true);
       setVerifyBsnkDetsilsError("");
+      setREsolvedBankDetails("");
       axios
         .get(
           `https://api.paystack.co/bank/resolve?account_number=${accountNumber}&bank_code=${userBankDetails.code}`,
@@ -77,11 +75,9 @@ const AppContextProvider = (props) => {
         .then((res) => {
           setIsResolvingbankDetails(false);
           setREsolvedBankDetails(res.data.data.account_name);
-          console.log(res, "user details");
         })
         .catch((err) => {
           setIsResolvingbankDetails(false);
-          console.log(err);
           setVerifyBsnkDetsilsError(err.response.data.message);
         });
     }
@@ -108,12 +104,10 @@ const AppContextProvider = (props) => {
           }
         )
         .then((res) => {
-          console.log(res, "Recepient");
           setIsSendingRequest(false);
           setRecepient(res.data.data);
         })
         .catch((err) => {
-          console.log(err);
           setIsSendingRequest(false);
         });
     }
@@ -121,6 +115,8 @@ const AppContextProvider = (props) => {
 
   const initiateTransfer = () => {
     setIsSendingRequest(true);
+    setVerifyBsnkDetsilsError("");
+
     axios
       .post(
         `https://api.paystack.co/transfer`,
@@ -139,11 +135,9 @@ const AppContextProvider = (props) => {
         }
       )
       .then((res) => {
-        console.log(res, "Initiate");
         setIsSendingRequest(false);
       })
       .catch((err) => {
-        console.log(err);
         setIsSendingRequest(false);
         setVerifyBsnkDetsilsError(err.response.data.message);
       });

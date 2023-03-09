@@ -7,6 +7,8 @@ import { AppContext } from "../../Context/AppContext";
 import Dropdown from "../../Components/Dropdown/Dropdown";
 import { Alert, CircularProgress } from "@mui/material";
 import Button from "../../Components/Button/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
 const InitiateTransfer = () => {
   // Context
@@ -22,7 +24,6 @@ const InitiateTransfer = () => {
     description,
     setDescription,
     resolveAccountDetails,
-    userBankDetails,
     isResolvingBankDetails,
     resolvedBankDetails,
     verifyAccountDetailsError,
@@ -36,17 +37,14 @@ const InitiateTransfer = () => {
   //   Utilitues
   const handleAccountNumberChange = (e) => {
     setAccountNumber(e.target.value);
-    console.log(accountNumber, typeof accountNumber);
   };
 
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
-    console.log(description);
   };
 
   const handleAmountChange = (e) => {
     setAmount(e.target.value);
-    console.log(amount);
   };
 
   const handleInitiateTransfer = () => {
@@ -55,16 +53,15 @@ const InitiateTransfer = () => {
 
   //   Effects
   useEffect(() => {
-    // Fetch all banks once this page mounts
     fetchBanks();
-    console.log(availablebanks);
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     if (accountNumber && resolvedBankDetails) {
       generateTransferRecepient();
-      console.log("Checking");
     }
+    // eslint-disable-next-line
   }, [accountNumber, resolvedBankDetails]);
 
   return (
@@ -78,6 +75,7 @@ const InitiateTransfer = () => {
                 <Alert severity="error">{verifyAccountDetailsError}</Alert>
               </div>
             )}
+
             <div className={classes.transferForm}>
               {/* Account number input */}
               <Input
@@ -110,6 +108,8 @@ const InitiateTransfer = () => {
                 <span className={classes.warning}>{fetchBanksError}</span>
               )}
             </div>
+
+            {/* Bank resolution details */}
             <div className={classes.bankResolutionDetails}>
               {isResolvingBankDetails && !resolvedBankDetails ? (
                 <CircularProgress
@@ -119,7 +119,20 @@ const InitiateTransfer = () => {
                 />
               ) : !isResolvingBankDetails && resolvedBankDetails ? (
                 <div className={classes.resolvedBankDetails}>
-                  {resolvedBankDetails}
+                  <span>{resolvedBankDetails}</span>
+
+                  <span>
+                    {
+                      <FontAwesomeIcon
+                        icon={faRotateLeft}
+                        color="#10a56c"
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          resolveAccountDetails();
+                        }}
+                      />
+                    }
+                  </span>
                 </div>
               ) : (
                 !resolvedBankDetails &&
@@ -143,7 +156,7 @@ const InitiateTransfer = () => {
               )}
             </div>
 
-            {/* Description Section */}
+            {/* Description and amount section */}
             {accountNumber && resolvedBankDetails && (
               <div className={classes.anountAndDescription}>
                 <Input

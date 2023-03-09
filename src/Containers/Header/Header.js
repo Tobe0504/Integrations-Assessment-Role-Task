@@ -30,7 +30,9 @@ const Header = () => {
                 to={link.route}
                 key={link.title}
                 className={
-                  window.location.pathname === link.route && classes.activeLink
+                  window.location.pathname === link.route
+                    ? classes.activeLink
+                    : undefined
                 }
               >
                 {link.title}
@@ -55,7 +57,9 @@ const Header = () => {
                 to={link.route}
                 key={link.title}
                 className={
-                  window.location.pathname === link.route && classes.activeLink
+                  window.location.pathname === link.route
+                    ? classes.activeLink
+                    : undefined
                 }
               >
                 {link.title}
