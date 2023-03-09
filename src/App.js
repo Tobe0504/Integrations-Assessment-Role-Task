@@ -6,8 +6,12 @@ import ProjectDocumentation from "./Containers/ProjectDocumentation/ProjectDocum
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<InitiateTransfer />} />
-      <Route path="/project-documentation" element={<ProjectDocumentation />} />
+      <Route exact path="/" element={<InitiateTransfer />} />
+      <Route
+        exact
+        path="/project-documentation"
+        element={<ProjectDocumentation />}
+      />
     </Routes>
   );
 }
