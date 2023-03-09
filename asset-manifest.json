@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Integrations-Assessment-Role-Task/static/css/main.da9eb2cf.css",
-    "main.js": "/Integrations-Assessment-Role-Task/static/js/main.a3eab34c.js",
+    "main.js": "/Integrations-Assessment-Role-Task/static/js/main.85aed64e.js",
     "static/js/787.ce6440ba.chunk.js": "/Integrations-Assessment-Role-Task/static/js/787.ce6440ba.chunk.js",
     "index.html": "/Integrations-Assessment-Role-Task/index.html",
     "main.da9eb2cf.css.map": "/Integrations-Assessment-Role-Task/static/css/main.da9eb2cf.css.map",
-    "main.a3eab34c.js.map": "/Integrations-Assessment-Role-Task/static/js/main.a3eab34c.js.map",
+    "main.85aed64e.js.map": "/Integrations-Assessment-Role-Task/static/js/main.85aed64e.js.map",
     "787.ce6440ba.chunk.js.map": "/Integrations-Assessment-Role-Task/static/js/787.ce6440ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.da9eb2cf.css",
-    "static/js/main.a3eab34c.js"
+    "static/js/main.85aed64e.js"
   ]
 }
