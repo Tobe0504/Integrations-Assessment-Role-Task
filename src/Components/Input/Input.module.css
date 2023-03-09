@@ -1,0 +1,84 @@
+.inputSubClass {
+  position: relative;
+  /* margin: 0.5em auto; */
+}
+
+.inputSubClass > .textInput {
+  border: 1px solid rgba(126, 139, 182, 0.3);
+  background-color: transparent;
+  border-radius: 10px;
+  width: 100%;
+  height: 60px;
+  margin: 0.7em 0em;
+  padding: 1rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  position: relative;
+}
+
+.inputSubClass > .textInput_invalid {
+  border-radius: 10px;
+  width: 100%;
+  height: 60px;
+  margin: 0.7em 0em;
+  padding: 1rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  position: relative;
+  border: 1px solid red;
+}
+
+.textInput:focus {
+  border: 1px solid var(--darkblue);
+  outline: none;
+}
+
+.textInput_invalid {
+  outline: none;
+}
+
+.inputLabel {
+  cursor: text;
+  color: #999999;
+  font-weight: 500;
+  position: absolute;
+  top: 32px;
+  left: 16px;
+  transform-origin: 0 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+.textInput:focus + .inputLabel,
+.textInput:not(:placeholder-shown) + .inputLabel {
+  transform: translateY(-0.8em) scale(0.7);
+}
+
+.textInput_invalid:focus + .inputLabel,
+.textInput_invalid:not(:placeholder-shown) + .inputLabel {
+  transform: translateY(-0.8em) scale(0.7);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .inputSubClass .textInput {
+    width: 100%;
+    margin: 0.7em auto;
+  }
+
+  .inputSubClass > .textInput_invalid {
+    width: 100%;
+    margin: 0.7em auto;
+  }
+
+  .inputLabel {
+    top: 25px;
+    left: 10px;
+  }
+}

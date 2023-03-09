@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 2px solid green;
+}
+
+.logoSection {
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  color: var(--darkblue);
+  margin-bottom: 2rem;
+  margin: 3rem 1rem;
+}
+
+.navLinkSection {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
